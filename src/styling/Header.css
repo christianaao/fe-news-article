@@ -1,10 +1,17 @@
 header {
-    /* background-color: #333; 
-    color: #151515; */
-    padding: 20px 0; 
-    text-align: center; 
-}
+    max-inline-size: 64rem;
+    margin-inline: auto;
+    /* block-size: 100dvh; */
+  }
 
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+/* 
 h1  {
     font-size: 3em;
 }
@@ -15,12 +22,12 @@ h1, h2 {
 }
 
 nav {
-    /* background-color: black; */
+    background-color: black;
     color: black;
     display: flex;
     justify-content: center;
     margin-top: 10px;
-}
+} */
 
 /* .link-container {
     display: flex; 
