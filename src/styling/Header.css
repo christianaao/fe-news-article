@@ -1,0 +1,40 @@
+header {
+    /* background-color: #333; 
+    color: #151515; */
+    padding: 20px 0; 
+    text-align: center; 
+}
+
+h1  {
+    font-size: 3em;
+}
+
+h1, h2 {
+    display: flex;
+    justify-content: start;
+}
+
+nav {
+    /* background-color: black; */
+    color: black;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+/* .link-container {
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+}
+
+.nav-link li {
+    margin: 0; 
+    font-size: 1.2em; 
+    cursor: pointer;
+    transition: color 0.3s ease; 
+}
+
+.nav-link li:hover {
+    color: rgb(234, 90, 104); 
+} */
