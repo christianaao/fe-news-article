@@ -1,0 +1,16 @@
+.comment-section {
+    border-radius: 0;
+    border: 1px, solid, #ec6a6a;
+    /* background-color: #f1dddd; */
+    padding: 3%;
+    line-height: 1.5;
+    max-width: fit-content;
+}
+
+.comment-card {
+    /* border-radius: 1%; */
+    /* border: 1px, solid, #ec6a6a; */
+    padding: 3%;
+    line-height: 1.5;
+    max-width: fit-content;
+}

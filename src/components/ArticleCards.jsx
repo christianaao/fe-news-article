@@ -12,8 +12,10 @@ export const ArticleCards = (props) => {
         return (
           <article className="article-card" key={article.article_id}>
               <Link className="article-link" to={`/articles/${article.article_id}`}>
-              <h2>{article.title}</h2>
-              <img src={article.article_img_url} alt={article.title} /></Link>
+                <h2>{article.title}</h2>
+                <img src={article.article_img_url} alt={article.title} className="article-img"/>
+              </Link>
+
               <h3>Written By: {article.author}</h3>
               <h4>Topic: {article.topic}</h4>
               <p>
