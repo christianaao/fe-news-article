@@ -1,5 +1,7 @@
 /* Nav Links */
+
 nav {
+    
     display: flex;
     justify-content: center;
     margin-top: 0.5rem;
@@ -7,11 +9,15 @@ nav {
 
  .navbar {
     display: flex; 
-    text-align: right;
+    justify-content: space-around;
+    text-align: center;
+    /* align-items: center; */
     background-color: black;
 }
 
 .nav-link {
+    width: 100vw;
+    text-wrap: nowrap;
     background-color: black;
     color:#fff;
     text-decoration: none;
@@ -51,11 +57,19 @@ nav {
     color: #702c33;
 }
 
+/* User Links in Article Comments */
+
+.user-link {
+    text-decoration:none;
+    color: black;
+}
+
+.user-link:hover {
+    color: #e04857; 
+}
+
 @media (max-width: 769px) {
     .navbar {
-        display:inline-flex; 
-        text-wrap:nowrap;
-        align-items: center;
-        /* justify-content: space-between; */
+        display:inline-block; 
     }
 }

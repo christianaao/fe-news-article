@@ -35,4 +35,15 @@ const getArticleByID = (articleID) => {
         console.log(error)
     })
 }
-export { getArticles, getArticleByID, searchData }
+
+const getCommentsByArticleID = (articleID) => {
+    return api.get(`/articles/${articleID}/comments`)
+    .then(({data}) => {
+        return data
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+}
+
+export { getArticles, getArticleByID, searchData, getCommentsByArticleID }
