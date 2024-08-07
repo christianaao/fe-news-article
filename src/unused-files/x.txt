@@ -1,0 +1,41 @@
+import { useEffect, useState} from "react";
+import { useParams } from "react-router-dom"
+import { getArticleByID } from "./api";
+import { LoadingScreen } from "./LoadingScreen";
+import { ArticleCards } from "./ArticleCards";
+
+export const SingleArticle = () => {
+
+    const [article, setArticle] = useState({})
+    
+    const [isLoading, setIsLoading] = useState(true)
+
+    const { article_id } = useParams()
+    console.log(article, article_id)
+
+    useEffect(() => {
+        setIsLoading(true)
+        getArticleByID(article_id)
+        .then((articleData) => {
+            setArticle(articleData)
+            setIsLoading(false)
+        })
+    }, [article_id])
+
+    if(isLoading) {
+        return (
+            <LoadingScreen/>
+        )
+    }
+
+    if (!article) {
+        return <h2>Article Not Found</h2>
+    }
+
+    return (
+        <ArticleCards article={article}/>
+    )
+}
+
+---
+

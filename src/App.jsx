@@ -1,13 +1,19 @@
-import { useState } from 'react'
-import "./styling/App.css"
+import "./CSS/App.css"
+import { Route, Routes } from "react-router-dom";
 import { Header } from './components/Header'
-import { ArticleCards } from './components/ArticleCards'
+import { SingleArticle } from './components/SingleArticle'
+import { ArticleList } from "./components/ArticleList"
+import SearchBar from "./components/SearchBar";
 
 function App() {
     return (
         <div>
             <Header/>
-            <ArticleCards/>
+            <SearchBar/>
+            <Routes>
+                <Route path="/" element={<ArticleList/>}/>
+                <Route path="/articles/:article_id" element={<SingleArticle/>}/>
+            </Routes>
         </div>
     )
 }
