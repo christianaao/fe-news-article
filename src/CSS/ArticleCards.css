@@ -1,4 +1,4 @@
-article {
+.article-card {
     border-radius: 5%;
     border: 1px, solid, #ec6a6a;
     padding: 5%;
@@ -10,8 +10,4 @@ article {
 img {
     max-width: 100%;
     border-radius: 5%;
-}
-
-section {
-    /* background-color: rgb(247, 197, 197); */
 }

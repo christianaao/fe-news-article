@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
-import { searchData } from "./api"
-import { SearchBar } from "./SearchBar"
+import { searchData } from "../components/api"
+import { SearchBar } from "../components/SearchBar"
 import { ItemsList } from "./HomePage"
-import { ArticleList} from "./ArticleList"
+import { ArticleList} from "../components/ArticleList"
 
 export default function SearchResults() {
     const [searchTerm, setSearchTerm] = useState("")

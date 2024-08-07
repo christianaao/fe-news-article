@@ -1,5 +1,6 @@
-import "../styling/Header.css";
+import "../CSS/Header.css";
 import React from "react";
+import { NavBar } from "./NavBar";
 
 
 export const Header = () => {
@@ -8,6 +9,7 @@ export const Header = () => {
       <title>CCN Community Connection News | Home</title>
       <h1>CCN</h1>
       <h2>Community Connection News</h2>
+      <NavBar/>
     </header>
   );
 };

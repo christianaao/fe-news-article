@@ -1,7 +1,6 @@
-import { useEffect } from "react"
 
-const [isLoading, setIsLoading] = useState(true)
-
-useEffect(() => {
-    
-})
+export const LoadingScreen = () => {
+    return (
+        <h2>Loading...</h2>
+    )
+}

@@ -11,6 +11,9 @@ const searchData = (searchTerm) => {
         console.dir(data)
         return data
     })
+    .catch((error) => {
+        console.log(error)
+    })
 }
 
 const getArticles = () => {
@@ -26,8 +29,6 @@ const getArticles = () => {
 const getArticleByID = (articleID) => {
     return api.get(`/articles/${articleID}`)
     .then(({data}) => {
-        console.log(data)
-        console.dir(data)
         return data
     })
     .catch((error) => {

@@ -1,0 +1,13 @@
+header {
+    max-inline-size: 64rem;
+    margin-inline: auto;
+    /* block-size: 100dvh; */
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }

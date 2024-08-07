@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react"
 import { getArticles } from "./api"
-import "../styling/ArticleCards.css";
+import { LoadingScreen } from "./LoadingScreen"
+// import { Link } from "react-router-dom";
+import "../CSS/ArticleCards.css";
+import { ArticleCards } from "./ArticleCards";
 // import { response } from "express";
 
-export const ArticleCards = () => {
+export const ArticleList = () => {
 
 const [articles, setArticles] = useState([])
 
@@ -30,7 +33,7 @@ const [isLoading, setIsLoading] = useState(true)
 
     if(isLoading) {
         return (
-            <h2>Loading...</h2>
+            <LoadingScreen/>
         )
     }
 
@@ -41,17 +44,6 @@ const [isLoading, setIsLoading] = useState(true)
     // }
 
     return (
-        <section className="article-card">
-            {articles.map((article) => 
-            <article key={article.article_id}>
-            <h2>{article.title}</h2>
-            <img src={article.article_img_url} alt={article.title}/>
-            <h3>Written By: {article.author}</h3>
-            <h4>Topic: {article.topic}</h4>
-            <p>Created: {new Date(article.created_at).toLocaleDateString()}</p>
-            <p>Votes: {article.votes} | Comments: {article.comment_count}</p>
-            </article>
-        )}
-        </section>
+        <ArticleCards articles={articles}/>
     )
 }
