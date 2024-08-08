@@ -9,7 +9,7 @@ import "../CSS/SingleArticle.css";
 
 export const SingleArticle = () => {
 
-    const [{article}, setArticle] = useState({})
+    const [article, setArticle] = useState({})
     
     const [isLoading, setIsLoading] = useState(true)
 
@@ -19,23 +19,15 @@ export const SingleArticle = () => {
         setIsLoading(true)
         getArticleByID(article_id)
         .then((articleData) => {
-            setArticle(articleData)
+            setArticle(articleData.article)
             setIsLoading(false)
         })
     }, [article_id])
-
-    // const incrementVotes = () => {
-    //     updateVotesByArticleID(article_id)
-    // }
 
     if(isLoading) {
         return (
             <LoadingScreen/>
         )
-    }
-
-    if (!article) {
-        return <h2>Article Not Found</h2>
     }
 
     return (
@@ -48,7 +40,9 @@ export const SingleArticle = () => {
                 <p>{new Date(article.created_at).toLocaleTimeString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit"})}</p>
                 <p className="article-body">{article.body}</p>
             </article>
-            <Votes articleID={article_id}/>
+            <Votes article_id={article_id} votes={article.votes}/>
+            <p>{article.votes}</p> 
+
             <h5>{article.comment_count} Comments</h5>
             <Comments/>
         </section>
