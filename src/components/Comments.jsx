@@ -11,7 +11,6 @@ export const Comments = () => {
 
     const [{comments}, setComments] = useState([])
 
-    console.dir(comments)
     const [isLoading, setIsLoading] = useState(true)
 
     const { article_id } = useParams()
@@ -37,11 +36,11 @@ export const Comments = () => {
             {comments.map((comment) => {
                 return (
                     <article className="comment-card" key={comment.comment_id}>
-                        <Link className="user-link" to={`/users/${comment.username}`}>{/* will need to change this from {comment.username} to {users.username} to link to users */}
+                        <Link className="default-link" to={`/users/${comment.username}`}>{/* will need to change this from {comment.username} to {users.username} to link to users */}
                             <h4>{comment.author}</h4>
                         </Link>
 
-                        <p>{new Date(comment.created_at).toLocaleTimeString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit"})}</p>
+                        <p className="dates">{new Date(comment.created_at).toLocaleTimeString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit"})}</p>
                         <p>{comment.body}</p>
                         <p>{comment.votes}</p>
                     </article>

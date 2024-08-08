@@ -1,22 +1,23 @@
 /* Nav Links */
 
 nav {
-    
     display: flex;
     justify-content: center;
     margin-top: 0.5rem;
 }
 
  .navbar {
+    /* max-width: fit-content; - test if this will keep navbar on page*/
     display: flex; 
     justify-content: space-around;
     text-align: center;
-    /* align-items: center; */
+    align-items: center;
     background-color: black;
 }
 
 .nav-link {
     width: 100vw;
+    max-width: fit-content;
     text-wrap: nowrap;
     background-color: black;
     color:#fff;
@@ -57,19 +58,9 @@ nav {
     color: #702c33;
 }
 
-/* User Links in Article Comments */
-
-.user-link {
-    text-decoration:none;
-    color: black;
-}
-
-.user-link:hover {
-    color: #e04857; 
-}
-
 @media (max-width: 769px) {
     .navbar {
         display:inline-block; 
+        /* max-width: fit-content; - test if this will keep navbar on page */
     }
 }

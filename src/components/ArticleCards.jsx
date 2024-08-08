@@ -16,8 +16,8 @@ export const ArticleCards = (props) => {
                 <img src={article.article_img_url} alt={article.title} className="article-img"/>
               </Link>
 
-              <h3>Written By: {article.author}</h3>
-              <h4>Topic: {article.topic}</h4>
+              <h3>Written By: <Link className="default-text default-link" to={`/users/${article.username}`}>{article.author}</Link></h3>
+              <h4>Topic: <Link className="default-text default-link" to={"/topics/"}>{article.topic}</Link></h4>
               <p>
                 Created: {new Date(article.created_at).toLocaleDateString('en-GB')}
               </p>
