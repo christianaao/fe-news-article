@@ -12,7 +12,7 @@ const [articles, setArticles] = useState([])
 
 const [isLoading, setIsLoading] = useState(true)
 
-// const [isError, setIsError] = useState(true)
+const [isError, setIsError] = useState(false)
 
     useEffect(() => {
         setIsLoading(true)
@@ -24,11 +24,11 @@ const [isLoading, setIsLoading] = useState(true)
             setArticles(articleData)
             setIsLoading(false)
         })
-        // .catch((error) => {
-        //     setIsError(true)
-        //     setIsLoading(false)
-        //     console.log("ERROR: ", error)
-        // })
+        .catch((error) => {
+            setIsError(true)
+            setIsLoading(false)
+            console.log("ERROR: ", error)
+        })
     }, [])
 
     if(isLoading) {
@@ -37,11 +37,11 @@ const [isLoading, setIsLoading] = useState(true)
         )
     }
 
-    // if(isError) {
-    //     return (
-    //         <h3>Something went wrong.</h3>
-    //     )
-    // }
+    if(isError) {
+        return (
+            <h3>Something went wrong.</h3>
+        )
+    }
 
     return (
         <ArticleCards articles={articles}/>

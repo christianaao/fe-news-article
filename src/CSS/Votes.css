@@ -33,6 +33,7 @@
 }
 
 .down-vote-button:hover {
+    cursor: pointer;
     color: #4e4ef3;
 }
 
