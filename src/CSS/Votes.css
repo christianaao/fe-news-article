@@ -1,0 +1,41 @@
+.vote-section {
+    display: inline-flex;
+    /* justify-content: space-around; */
+    align-items: center;
+    /* background-color: black; */
+}
+
+/* up-vote button */
+/* button {
+    background-color: black;
+} */
+.up-vote-button {
+    border: none;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.up-vote-button:hover{
+    cursor: pointer;
+    color: #ec6a6a ;
+}
+
+.up-vote-button:focus{
+    color: #ec6a6a ;
+}
+
+/* down-vote button */
+
+.down-vote-button {
+    border: none;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.down-vote-button:hover {
+    color: #4e4ef3;
+}
+
+.down-vote-button:focus {
+    color: #4e4ef3;
+}

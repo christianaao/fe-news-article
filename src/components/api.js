@@ -46,4 +46,8 @@ const getCommentsByArticleID = (articleID) => {
     })
 }
 
-export { getArticles, getArticleByID, searchData, getCommentsByArticleID }
+const updateVotesByArticleID = (articleID) => {
+    return api.patch(`/articles/${articleID}`, { inc_votes : 1 })
+}
+
+export { getArticles, getArticleByID, searchData, getCommentsByArticleID, updateVotesByArticleID }
