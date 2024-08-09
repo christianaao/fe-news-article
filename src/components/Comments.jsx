@@ -43,7 +43,7 @@ export const Comments = () => {
                         <p className="dates">{new Date(comment.created_at).toLocaleTimeString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit"})}</p>
                         <p>{comment.body}</p>
                         {/* <Votes article_id={article_id} votes={comment.votes}/> */}
-                        <p>{comment.votes}</p> 
+                        <p>Votes: {comment.votes}</p> 
                     </article>
                 )
             })}

@@ -32,8 +32,12 @@ const getCommentsByArticleID = (articleID) => {
     })
 }
 
-const updateVotesByArticleID = (articleID, num) => {
+const patchVotesByArticleID = (articleID, num) => {
     return api.patch(`/articles/${articleID}`, { inc_votes : num })
 }
 
-export { getArticles, getArticleByID, searchData, getCommentsByArticleID, updateVotesByArticleID }
+const postCommentByArticleID = ({article_id}, username, body) => {
+    console.log(article_id)
+    return api.post(`/articles/${article_id}`, { username : username, body : body})
+}
+export { getArticles, getArticleByID, searchData, getCommentsByArticleID, patchVotesByArticleID, postCommentByArticleID}

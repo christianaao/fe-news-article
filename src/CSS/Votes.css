@@ -5,10 +5,6 @@
     /* background-color: black; */
 }
 
-/* up-vote button */
-/* button {
-    background-color: black;
-} */
 .up-vote-button {
     border: none;
     padding-left: 10%;
@@ -39,4 +35,14 @@
 
 .down-vote-button:focus {
     color: #4e4ef3;
+}
+
+/* Error Message */
+
+.vote-error {
+    color: #4e4ef3;
+    font-weight: 600;
+    display: inline-block;
+    padding: 1%;
+    margin-top: 2%;
 }

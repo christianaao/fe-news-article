@@ -11,3 +11,14 @@
     /* margin-left: 1%;
     margin-right: 1%; */
 }
+.article-interaction {
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+
+.article-interaction-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2%;
+    margin-top: 2%;
+}

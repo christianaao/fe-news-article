@@ -6,6 +6,7 @@ import { Comments } from "./Comments";
 import { Votes } from "./Votes";
 import { Link } from "react-router-dom";
 import "../CSS/SingleArticle.css";
+import { NewComment } from "./NewComment";
 
 export const SingleArticle = () => {
 
@@ -40,11 +41,16 @@ export const SingleArticle = () => {
                 <p>{new Date(article.created_at).toLocaleTimeString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit"})}</p>
                 <p className="article-body">{article.body}</p>
             </article>
-            <Votes article_id={article_id} votes={article.votes}/>
-            <p>{article.votes}</p> 
-
-            <h5>{article.comment_count} Comments</h5>
-            <Comments/>
+            <section className="article-interaction">
+                <h4>Let us know what you think!</h4>
+                <div className="article-interaction-info">
+                    <Votes article_id={article_id} votes={article.votes}/>
+                    <h5>{article.comment_count} Comments</h5>
+                </div>
+                <NewComment article_id={article_id} />
+                <Comments/>
+            </section>
+            
         </section>
     )
 }
