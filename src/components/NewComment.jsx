@@ -2,17 +2,17 @@ import { useState, useContext } from "react"
 import { postCommentByArticleID } from "./api"
 import { UserContext } from "../context/User"
 
-export const NewComment = (article_id) => {
+export const NewComment = ({article_id, setComments}) => {
 
     const {user, setUser} = useContext(UserContext)
 
-    const [newComment, setNewComment] = useState("")
+    const [newCommentInput, setNewCommentInput] = useState("")
 
     const [invalidComment, setInvalidComment] = useState(false)
 
     function handleCommentChange(event) {
         const value = event.target.value
-        setNewComment(value)
+        setNewCommentInput(value)
     }
 
     function handleSubmit(event) {
@@ -20,13 +20,16 @@ export const NewComment = (article_id) => {
         if(!user.username) {
             setInvalidComment(true)
             alert("Please login to post a comment.")
-        } else if (!newComment) {
+        } else if (!newCommentInput) {
             setInvalidComment(true)
         } else {
             setInvalidComment(false)
-            return postCommentByArticleID(article_id, user.username, newComment)
+            return postCommentByArticleID(article_id, user.username, newCommentInput)
             .then((commentData) => {
-                setNewComment((currentComments) => [...currentComments, newComment])
+                setComments((currentComments) => {
+                    return [commentData.data.comment, ...currentComments]
+                })
+                setNewCommentInput("")
             })
             .catch((err) => {
                 console.log(err)
@@ -43,7 +46,7 @@ export const NewComment = (article_id) => {
                     id="comment-input"
                     onChange={handleCommentChange}
                     placeholder="Add a comment"
-                    value={newComment}
+                    value={newCommentInput}
                     type="text"></input>
                 <button className="default-button post-comment-button">Comment</button>
             </form>

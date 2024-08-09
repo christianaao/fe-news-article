@@ -11,6 +11,8 @@ import { NewComment } from "./NewComment";
 export const SingleArticle = () => {
 
     const [article, setArticle] = useState({})
+
+    const [comments, setComments] = useState([])
     
     const [isLoading, setIsLoading] = useState(true)
 
@@ -47,8 +49,8 @@ export const SingleArticle = () => {
                     <Votes article_id={article_id} votes={article.votes}/>
                     <h5>{article.comment_count} Comments</h5>
                 </div>
-                <NewComment article_id={article_id} />
-                <Comments/>
+                <NewComment article_id={article_id} setComments={setComments}/>
+                <Comments comments={comments} setComments={setComments}/>
             </section>
             
         </section>

@@ -8,9 +8,8 @@ import { Votes } from "./Votes";
 import "../CSS/Links.css"
 import "../CSS/Comments.css"
 
-export const Comments = () => {
+export const Comments = ({comments, setComments}) => {
 
-    const [comments, setComments] = useState([])
 
     const [isLoading, setIsLoading] = useState(true)
 
