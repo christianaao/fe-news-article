@@ -18,7 +18,7 @@ input:focus {
     outline: none;
 }
 
-button.search-button {
+button.default-button {
     background-color: #333;
     border: none;
     border-radius: 4px;
@@ -29,6 +29,6 @@ button.search-button {
     transition: background-color 0.3s;
 }
 
-button.search-button:hover {
+button.default-button:hover {
     background-color: #ec6a6a;
 }

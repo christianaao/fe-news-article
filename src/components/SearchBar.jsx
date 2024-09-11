@@ -25,7 +25,7 @@ export default function SearchBar({ setSearchTerm }) {
         placeholder="Search here"
         value={currentSearchInput}
         type="text"></input>
-      <button className="search-button">Search</button>
+      <button className="default-button">Search</button>
     </form>
   );
 }
