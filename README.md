@@ -6,23 +6,23 @@ This project is the frontend application of my news article website, created usi
 
 ## Project Links
 
-Frontend APP: _coming soon_
+Frontend APP: _coming soon_<br/>
 Frontend Repo: https://github.com/christianaao/frontend-news-article-project
 
-Backend API : https://news-article-project.onrender.com/
+Backend API : https://news-article-project.onrender.com/<br/>
 Backend Repo: https://github.com/christianaao/backend-news-article-project
 
 _Please refer to the Backend Repo on guidance for using the Backend API_
 
 ## Features of this Project
 
-This project was created as a CRUD (Create, Read, Update, Delete) application, providing users with an engaging experience for browsing and interacting with the news articles.
+This project was created as a CRUD (Create, Read, Update, Delete) application, providing users with an engaging experience for browsing and interacting with the news articles available on the site.
 
-It includes:
+Site features include:
 
-- a list of articles to browse, providing some details about the article, such as the author, created by date, and vote and comment counts.
+* a list of articles to browse through, with details about the article such as author, date of creation, and vote and comment counts.
 
-- individual articles that can be viewed and read
+* individual articles that can be viewed and read
 
 * a voting section for each individual article
 
