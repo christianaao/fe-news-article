@@ -28,7 +28,7 @@ Site features include:
 
 * a comments section for each individual article
 
-* functionality to add comments
+* functionality to add and delete comments
 
 _and more features to come!_
 
