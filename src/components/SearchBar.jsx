@@ -18,14 +18,15 @@ export default function SearchBar({ setSearchTerm }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="searchTerm"></label>
+      <label htmlFor="search-term"></label>
       <input
-        id="searchTerm"
+      aria-label="search-bar"
+        id="search-term"
         onChange={handleChange}
         placeholder="Search here"
         value={currentSearchInput}
         type="text"></input>
-      <button className="default-button">Search</button>
+      <button className="default-button" type="submit">Search</button>
     </form>
   );
 }

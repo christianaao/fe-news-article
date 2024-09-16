@@ -36,10 +36,10 @@ export const SingleArticle = () => {
     return (
         <section>
             <article key={article_id}>
-                <h4 className="article-header">Topic: <Link className="default-text default-link" to={"/topics/"}>{article.topic}</Link></h4>
+                <h3 className="article-header">Topic: <Link className="default-text default-link" to={"/topics/"}>{article.topic}</Link></h3>
                 <h2 className="article-header">{article.title}</h2>
                 <img src={article.article_img_url} alt={article.title} className="article-img article-header"/>
-                <h3>Written By: <Link className="default-text default-link" to={`/users/${article.username}`}>{article.author}</Link></h3>
+                <h3>Written By: <Link className="default-text default-link" to={`/users/${article.username}`}>{article.author}</Link></h3> {/*need to go to backend and complete task 17 to allow search by username*/}
                 <p>{new Date(article.created_at).toLocaleTimeString('en-GB', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit"})}</p>
                 <p className="article-body">{article.body}</p>
             </article>

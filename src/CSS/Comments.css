@@ -14,3 +14,26 @@
     line-height: 1.5;
     max-width: fit-content;
 }
+
+textarea{
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    background: transparent;
+    border-radius: 4px;
+
+    padding: 10px;
+    width: 100vw;
+    min-height: 4.5vh;
+    max-height: 20vh;
+    resize:vertical;
+
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 1.5;
+    transition: border-color 0.3s;
+}
+    
+textarea:focus {
+    border-color: #ec6a6a;
+    outline: none;
+}
