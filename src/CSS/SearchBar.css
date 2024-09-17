@@ -17,18 +17,3 @@ input:focus {
     border-color: #ec6a6a;
     outline: none;
 }
-
-button.default-button {
-    background-color: #333;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-    margin-left: 10px;
-    padding: 10px 20px;
-    transition: background-color 0.3s;
-}
-
-button.default-button:hover {
-    background-color: #ec6a6a;
-}

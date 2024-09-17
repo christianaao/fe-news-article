@@ -21,18 +21,17 @@ export const Votes = ({article_id, votes}) => {
     }
     
     return (
-        <section>
-            <div className="vote-section">
-                <button className="up-vote-button" onClick={() => handleVote(1)}><FontAwesomeIcon icon={faCircleUp} size={"1x"}/>
+        <section className="vote-section">
+                <button aria-label="up-vote" className="up-vote-button" onClick={() => handleVote(1)}><FontAwesomeIcon icon={faCircleUp} size={"1x"}/>
                 </button>
-                <p>{votesCount + votes}</p>
-                <button className="down-vote-button" onClick={() => handleVote(-1)}><FontAwesomeIcon icon={faCircleDown} size={"1x"}/>
+                <p><span aria-hidden="true">{votesCount + votes}</span>
+                    <span className="visually-hidden">Current vote count: {votesCount + votes}</span></p>
+                <button aria-label="down-vote" className="down-vote-button" onClick={() => handleVote(-1)}><FontAwesomeIcon icon={faCircleDown} size={"1x"}/>
                 </button>
-            </div>
             
-            <div className="vote-error">
-                {error ? <p>{error}</p> : null}
-            </div>
+            <>
+                {error ? <p className="vote-error">{error}</p> : null}
+            </>
         </section>
     )
 }

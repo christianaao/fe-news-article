@@ -1,9 +1,8 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { getCommentsByArticleID } from "./api";
-import { LoadingScreen } from "./LoadingScreen";
-import { CommentError } from "./CommentError";
-import { NoComments } from "./NoComments";
+import { LoadingScreen } from "./LoadingStatuses";
+import { NoComments } from "./LoadingStatuses";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Votes } from "./Votes";
@@ -13,20 +12,20 @@ import "../CSS/Comments.css";
 export const Comments = ({ comments, setComments }) => {
   const [isLoading, setIsLoading] = useState(true);
 
-  const [noComments, setNoComments] = useState(true)
+  const [noComments, setNoComments] = useState(true);
 
   const { article_id } = useParams();
 
   useEffect(() => {
     setIsLoading(true);
-    getCommentsByArticleID(article_id).then(({comments}) => {
+    getCommentsByArticleID(article_id).then(({ comments }) => {
       if (comments.length === 0) {
-          setIsLoading(false)
-          setNoComments(true)
+        setIsLoading(false);
+        setNoComments(true);
       } else {
-          setComments(comments);
-          setNoComments(false)
-          setIsLoading(false);
+        setComments(comments);
+        setNoComments(false);
+        setIsLoading(false);
       }
     });
   }, []);
@@ -36,7 +35,7 @@ export const Comments = ({ comments, setComments }) => {
   }
 
   if (noComments) {
-    return <NoComments />
+    return <NoComments />;
   }
 
   return (

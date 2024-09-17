@@ -1,13 +1,22 @@
 import { useState, useContext } from "react";
 import { postCommentByArticleID } from "./api";
+import { LoadingPostButton } from "./LoadingStatuses";
 import { UserContext } from "../context/User";
+import { CommentError, InvalidComment, NotLoggedInComment } from "./ErrorMessages";
+import "../CSS/Comments.css"
 
 export const NewComment = ({ article_id, setComments }) => {
   const { user, setUser } = useContext(UserContext);
 
+  const [isloggedIn, setIsLoggedIn] = useState(true)
+
   const [newCommentInput, setNewCommentInput] = useState("");
 
-  const [invalidComment, setInvalidComment] = useState(null);
+  const [invalidComment, setInvalidComment] = useState(false);
+
+  const [isCommentLoading, setIsCommentLoading] = useState(false);
+
+  const [disableButton, setDisableButton] = useState(false);
 
   function handleCommentChange(event) {
     const value = event.target.value;
@@ -17,21 +26,49 @@ export const NewComment = ({ article_id, setComments }) => {
   function handleSubmit(event) {
     event.preventDefault();
     if (!user.username) {
-      setInvalidComment("Please login to post a comment.");
+      setIsLoggedIn(false)
+      setDisableButton(true)
     } else if (newCommentInput === "") {
-      setInvalidComment("Please enter a valid comment");
+      setInvalidComment(true);
+      setDisableButton(true) //figure out how to make it refresh
     } else {
-      setInvalidComment(null);
+      setDisableButton(false)
+      setInvalidComment(false);
+      setIsCommentLoading(true);
       return postCommentByArticleID(article_id, user.username, newCommentInput)
         .then((commentData) => {
           setComments((currentComments) => {
             return [commentData.data.comment, ...currentComments];
           });
           setNewCommentInput("");
+          setIsCommentLoading(false);
         })
         .catch((err) => {
           console.log(err);
         });
+    }
+  }
+
+  // Error Handling
+function CommentErrors() {
+  if (!isloggedIn) {
+    return <NotLoggedInComment />
+  } else if (invalidComment) {
+    return <InvalidComment/>
+  }
+}
+
+  function CommentButton() {
+    if (disableButton) {
+      return (
+      <button className="default-button" disabled>Comment</button>
+      )
+    } else if(isCommentLoading) {
+      return <LoadingPostButton />
+    } else {
+      return (
+        <button className="default-button">Comment</button>
+      )
     }
   }
 
@@ -41,7 +78,7 @@ export const NewComment = ({ article_id, setComments }) => {
       <form onSubmit={handleSubmit}>
         <label htmlFor="comment-textarea"></label>
         <textarea
-        aria-label="type-your-comment-here"
+          aria-label="type-your-comment-here"
           id="comment-textarea"
           onChange={handleCommentChange}
           placeholder="Add a comment"
@@ -51,8 +88,12 @@ export const NewComment = ({ article_id, setComments }) => {
           rows={1}
           type="text"
         ></textarea>
-        <button className="default-button post-comment-button">Comment</button>
+        <div className="comment-error">{/* add error message for empty comment */}</div>
+        {<CommentButton/>}
       </form>
+        <div>
+        {<CommentErrors/>}
+        </div>
     </section>
   );
 };
