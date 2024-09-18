@@ -39,4 +39,9 @@ const patchVotesByArticleID = (articleID, num) => {
 const postCommentByArticleID = (article_id, username, body) => {
     return api.post(`/articles/${article_id}/comments`, { username : username, body : body})
 }
-export { getArticles, getArticleByID, searchData, getCommentsByArticleID, patchVotesByArticleID, postCommentByArticleID }
+
+const deleteCommentByCommentID = (comment_id) => {
+    return api.delete(`/comments/${comment_id}`)
+}
+
+export { getArticles, getArticleByID, searchData, getCommentsByArticleID, patchVotesByArticleID, postCommentByArticleID, deleteCommentByCommentID }

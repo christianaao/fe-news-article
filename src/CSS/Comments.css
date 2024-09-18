@@ -7,6 +7,10 @@
     max-width: fit-content;
 }
 
+.comment-section-header {
+    font-size: larger;
+}
+
 .comment-card {
     /* border-radius: 1%; */
     /* border: 1px, solid, #ec6a6a; */

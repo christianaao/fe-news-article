@@ -67,7 +67,7 @@ export const SingleArticle = () => {
         <p className="article-body">{article.body}</p>
       </article>
       <section className="article-interaction">
-        <h4>Let us know what you think!</h4>
+        <h3>Let us know what you think!</h3>
         <div className="article-interaction-info">
           <Votes article_id={article_id} votes={article.votes} />
           <h5>{article.comment_count} Comments</h5>

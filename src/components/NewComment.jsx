@@ -61,7 +61,7 @@ function CommentErrors() {
   function CommentButton() {
     if (disableButton) {
       return (
-      <button className="default-button" disabled>Comment</button>
+      <button className="default-button loading" disabled>Comment</button>
       )
     } else if(isCommentLoading) {
       return <LoadingPostButton />
@@ -74,7 +74,7 @@ function CommentErrors() {
 
   return (
     <section>
-      <h2>Post a Comment</h2>
+      <h3 className="comment-section-header">Post a Comment</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="comment-textarea"></label>
         <textarea

@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { Votes } from "./Votes";
 import "../CSS/Links.css";
 import "../CSS/Comments.css";
+import { DeleteComment } from "./DeleteComment";
 
 export const Comments = ({ comments, setComments }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -60,7 +61,8 @@ export const Comments = ({ comments, setComments }) => {
             </p>
             <p>{comment.body}</p>
             <Votes article_id={article_id} votes={comment.votes} />
-            <p>Votes: {comment.votes}</p>
+            {/* <p>Votes: {comment.votes}</p> */}
+            <DeleteComment comment_id={comment.comment_id} comments={comments} setComments={setComments}/>
           </article>
         );
       })}
