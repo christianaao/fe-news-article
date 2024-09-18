@@ -4,6 +4,8 @@
 
 This project is the frontend application of my news article website, created using React.js. It is designed to display data using the API I built in my backend projetct. This app features a range of functionality from viewing lists of articles, to voting and commenting on individual articles.
 
+This project is still under development and is continually being improved.
+
 ## Project Links
 
 Frontend APP: _coming soon_<br/>
