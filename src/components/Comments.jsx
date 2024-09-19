@@ -40,7 +40,7 @@ export const Comments = ({ comments, setComments }) => {
   }
 
   return (
-    <section className="comment-section">
+    <section className="section">
       {comments.map((comment) => {
         return (
           <article className="comment-card" key={comment.comment_id}>

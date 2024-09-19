@@ -28,7 +28,6 @@ export const Votes = ({article_id, votes}) => {
                     <span className="visually-hidden">Current vote count: {votesCount + votes}</span></p>
                 <button aria-label="down-vote" className="down-vote-button" onClick={() => handleVote(-1)}><FontAwesomeIcon icon={faCircleDown} size={"1x"}/>
                 </button>
-            
             <>
                 {error ? <p className="vote-error">{error}</p> : null}
             </>

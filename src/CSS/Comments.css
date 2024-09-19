@@ -1,19 +1,10 @@
-.comment-section {
-    border-radius: 0;
-    border: 1px, solid, #ec6a6a;
-    /* background-color: #f1dddd; */
-    padding: 3%;
-    line-height: 1.5;
-    max-width: fit-content;
-}
-
 .comment-section-header {
     font-size: larger;
 }
 
 .comment-card {
-    /* border-radius: 1%; */
-    /* border: 1px, solid, #ec6a6a; */
+    /* border-radius: 1%;
+    border: 1px, solid, #ec6a6a; */
     padding: 3%;
     line-height: 1.5;
     max-width: fit-content;
@@ -45,6 +36,7 @@ textarea:focus {
 .delete-button-section {
     display: flex;
     justify-content: end;
+    /* position:absolute; */
     /* background-color: black; */
 }
 

@@ -18,16 +18,8 @@ const getTopics = () => {
     })
 }
 
-const getArticleByTopic = (slug) => {
-    return api.get(`/articles?topic=${slug}`)
-    .then(({data}) => {
-        console.log(data)
-        return data
-    })
-}
-
-const getArticles = () => {
-    return api.get("/articles")
+const getArticles = (topic, sortByQuery, orderQuery) => {
+    return api.get("/articles", { params: { topic: topic, sort_by: sortByQuery, order: orderQuery }})
     .then(({data}) => {
         return data
     })
@@ -59,4 +51,4 @@ const deleteCommentByCommentID = (comment_id) => {
     return api.delete(`/comments/${comment_id}`)
 }
 
-export { getTopics, getArticleByTopic, getArticles, getArticleByID, searchData, getCommentsByArticleID, patchVotesByArticleID, postCommentByArticleID, deleteCommentByCommentID }
+export { getTopics, getArticles, getArticleByID, searchData, getCommentsByArticleID, patchVotesByArticleID, postCommentByArticleID, deleteCommentByCommentID }
