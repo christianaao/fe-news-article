@@ -3,6 +3,7 @@ import { getTopics } from "./api";
 import { LoadingScreen } from "./LoadingStatuses";
 import { CannotLoadData } from "./ErrorMessages";
 import { Link } from "react-router-dom";
+import "../CSS/Topics.css"
 
 export const Topics = () => {
 
@@ -33,15 +34,13 @@ export const Topics = () => {
         return <CannotLoadData/>
     }
 
-// read notes on React Router and Sorting Data for filtering topics
-
     return (
-        <section>
+        <section className="section">
             {topics.map((topic) => {
                 return (
-                    <article className="article-card" key={topic.slug}>
-                        <Link className="article-link" to={`/articles?topic=${topic.slug}`}>
-                        <h2>{topic.slug}</h2>
+                    <article className="topic-card" key={topic.slug}>
+                        <Link className="article-link" to={`/articles/topic/${topic.slug}`}>
+                        <h2>{topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1)}</h2>
                         </Link>
                         <p>{topic.description}</p>
                     </article>
