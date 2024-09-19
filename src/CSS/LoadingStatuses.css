@@ -1,9 +1,9 @@
-button[disabled], button:disabled{
+.loading button[disabled], .loading button:disabled{
     /* border: 1px solid black; */
     background-color: #646464;
     padding: 15px 20px;
   }
 
-  button[disabled]:hover, button:disabled:hover{
+.loading button[disabled]:hover,.loading button:disabled:hover{
     background-color: #646464
   }

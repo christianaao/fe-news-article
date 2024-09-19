@@ -1,21 +1,27 @@
 export const InvalidComment = () => {
     return (
         <>
-        <p className="vote-error" disabled>Please enter a valid comment</p>
+        <p className="error-message" disabled>Please enter a valid comment</p>
         </>
     )
 }
 
 export const CommentError = () => {
     return (
-        <h2>Unexpected error! Your comment has not been registered.</h2>
+        <p className="error-message">Unexpected error! Your comment has not been registered.</p>
+    )
+}
+
+export const DeleteCommentError = () => {
+    return (
+        <p className="error-message">Unexpected error! Your comment has not been deleted.</p>
     )
 }
 
 export const NotLoggedInComment = () => {
     return (
         <>
-        <p className="vote-error" disabled>Please login to post a comment</p>
+        <p className="error-message" disabled>Please login to post a comment</p>
         </>
     )
 }

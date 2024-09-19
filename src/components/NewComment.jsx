@@ -30,7 +30,7 @@ export const NewComment = ({ article_id, setComments }) => {
       setDisableButton(true)
     } else if (newCommentInput === "") {
       setInvalidComment(true);
-      setDisableButton(true) //figure out how to make it refresh
+      setDisableButton(true) //figure out how to make it refresh so you can continue to type in box and make a new comment
     } else {
       setDisableButton(false)
       setInvalidComment(false);
@@ -61,7 +61,7 @@ function CommentErrors() {
   function CommentButton() {
     if (disableButton) {
       return (
-      <button className="default-button" disabled>Comment</button>
+      <button className="default-button loading" disabled>Comment</button>
       )
     } else if(isCommentLoading) {
       return <LoadingPostButton />
@@ -74,7 +74,7 @@ function CommentErrors() {
 
   return (
     <section>
-      <h2>Post a Comment</h2>
+      <h3 className="comment-section-header">Post a Comment</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="comment-textarea"></label>
         <textarea
@@ -88,12 +88,9 @@ function CommentErrors() {
           rows={1}
           type="text"
         ></textarea>
-        <div className="comment-error">{/* add error message for empty comment */}</div>
         {<CommentButton/>}
       </form>
-        <div>
-        {<CommentErrors/>}
-        </div>
+      {<CommentErrors/>}
     </section>
   );
 };

@@ -1,42 +1,46 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 * {
-    margin: 0;
-    padding: 0;
-    background-color: rgb(252, 241, 241);
-    font-family: "Montserrat", sans-serif;
-    font-size:large;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(252, 241, 241);
+  font-family: "Montserrat", sans-serif;
+  font-size:large;
 }
 
 h1, h2, h3, h4 {
-    font-family: "Playfair Display", serif;
+  font-family: "Playfair Display", serif;
+}
+
+h3 {
+  font-size:larger;
 }
 
 body {
-    margin: 20px auto;
-    width: 95%;
-    font-size: 70%;
-    line-height: 1.4;
+  margin: 20px auto;
+  width: 95%;
+  font-size: 70%;
+  line-height: 1.4;
   }
 
-  span {
-    font-family: inherit;
-    font-size: inherit;
+span {
+  font-family: inherit;
+  font-size: inherit;
   }
 
-  button.default-button {
-    background-color: #333;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    cursor: pointer;
-    margin-left: 10px;
-    padding: 15px 20px;
-    transition: background-color 0.3s;
+button.default-button {
+  background-color: #333;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+  padding: 15px 20px;
+  transition: background-color 0.3s;
 }
 
 button.default-button:hover {
-    background-color: #ec6a6a;
+  background-color: #ec6a6a;
 }
 
 /* accessibility */
@@ -48,6 +52,16 @@ button.default-button:hover {
   height: 1px; width: 1px; 
   margin: -1px; padding: 0; border: 0; 
   }
+
+  /* Error Message */
+
+  .error-message {
+    color: #4e4ef3;
+    font-weight: 600;
+    display: inline-block;
+    padding: 1%;
+    margin-top: 2%;
+}
 
 /* resetting some links and headings back to default */
 

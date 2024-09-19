@@ -12,7 +12,15 @@ export const LoadingScreen = () => {
 export const LoadingPostButton = () => {
     return (
         <>
-        <button className="default-button" disabled>Posting...</button>
+        <button className="default-button loading" disabled>Posting...</button>
+        </>
+    )
+}
+
+export const DeletingCommentButton = () => {
+    return (
+        <>
+        <button className="default-button loading" disabled>Deleting...</button>
         </>
     )
 }
