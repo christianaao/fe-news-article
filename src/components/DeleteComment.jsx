@@ -1,24 +1,26 @@
 import { deleteCommentByCommentID } from "./api"
 import { DeleteCommentError } from "./ErrorMessages"
-import { useEffect, useState } from "react"
-import { Comments } from "./Comments"
+import { DeletingCommentButton } from "./LoadingStatuses"
+import { useState } from "react"
 
-export const DeleteComment = ({comment_id, comments, setComments}) => {
+export const DeleteComment = ({comment_id, setComments}) => {
 
     const [error, setError] = useState(false)
 
-    // useEffect(() => {
+    const [isCommentDeleting, setIsCommentDeleting] = useState(false)
 
-    // })
     const handleDelete = (event) => {
         event.preventDefault()
+        setIsCommentDeleting(true)
         deleteCommentByCommentID(comment_id)
         .then(() => {
-            console.dir(comments)
             setComments((commentsData) => {
-                console.log(commentsData)
-                commentsData - commentsData[0]
+                const renderedComments = commentsData.filter((comment) => {
+                    return comment.comment_id !== comment_id
+                })
+                return renderedComments
             })
+            setIsCommentDeleting(false)
             setError(false)
         })
         .catch((err) => {
@@ -26,16 +28,23 @@ export const DeleteComment = ({comment_id, comments, setComments}) => {
             setError(true)
         })
     }
-
-    // if(refreshComments) {
-    //     return <Comments />
-    // }
-
+    // Error Handling
     if (error) {
         return <DeleteCommentError/>
     }
 
+    function DeleteButton() {
+        if (isCommentDeleting) {
+            return <DeletingCommentButton/>
+        } else {
+            return (
+                <button className="default-button delete" onClick={handleDelete}>Delete Comment</button>
+            )
+    }
+}
     return (
-        <button onClick={handleDelete}>Delete Comment</button>
+        <div className="delete-button-section">
+            <DeleteButton/>
+        </div>
     )
 }

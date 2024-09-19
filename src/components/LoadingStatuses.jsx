@@ -17,6 +17,14 @@ export const LoadingPostButton = () => {
     )
 }
 
+export const DeletingCommentButton = () => {
+    return (
+        <>
+        <button className="default-button loading" disabled>Deleting...</button>
+        </>
+    )
+}
+
 export const NoComments = () => {
     return (
         <h3>No comments here yet. Be the first to post a comment!</h3>

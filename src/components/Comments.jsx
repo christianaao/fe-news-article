@@ -62,7 +62,7 @@ export const Comments = ({ comments, setComments }) => {
             <p>{comment.body}</p>
             <Votes article_id={article_id} votes={comment.votes} />
             {/* <p>Votes: {comment.votes}</p> */}
-            <DeleteComment comment_id={comment.comment_id} comments={comments} setComments={setComments}/>
+            <DeleteComment comment_id={comment.comment_id} setComments={setComments}/>
           </article>
         );
       })}
