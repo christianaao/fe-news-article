@@ -11,6 +11,21 @@ const searchData = (searchTerm) => {
     })
 }
 
+const getTopics = () => {
+    return api.get("/topics")
+    .then(({data}) => {
+        return data
+    })
+}
+
+const getArticleByTopic = (slug) => {
+    return api.get(`/articles?topic=${slug}`)
+    .then(({data}) => {
+        console.log(data)
+        return data
+    })
+}
+
 const getArticles = () => {
     return api.get("/articles")
     .then(({data}) => {
@@ -44,4 +59,4 @@ const deleteCommentByCommentID = (comment_id) => {
     return api.delete(`/comments/${comment_id}`)
 }
 
-export { getArticles, getArticleByID, searchData, getCommentsByArticleID, patchVotesByArticleID, postCommentByArticleID, deleteCommentByCommentID }
+export { getTopics, getArticleByTopic, getArticles, getArticleByID, searchData, getCommentsByArticleID, patchVotesByArticleID, postCommentByArticleID, deleteCommentByCommentID }

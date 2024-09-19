@@ -1,3 +1,9 @@
+export const CannotLoadData = () => {
+    return (
+        <p className="error-message">Something went wrong. Could not load data.</p>
+    )
+}
+
 export const InvalidComment = () => {
     return (
         <>

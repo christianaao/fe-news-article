@@ -7,6 +7,7 @@ import { Votes } from "./Votes";
 import { Link } from "react-router-dom";
 import "../CSS/SingleArticle.css";
 import { NewComment } from "./NewComment";
+import { CannotLoadData } from "./ErrorMessages";
 
 export const SingleArticle = () => {
   const [article, setArticle] = useState({});
@@ -15,18 +16,31 @@ export const SingleArticle = () => {
 
   const [isLoading, setIsLoading] = useState(true);
 
+  const [isError, setIsError] = useState(false);
+
   const { article_id } = useParams();
 
   useEffect(() => {
     setIsLoading(true);
-    getArticleByID(article_id).then((articleData) => {
+    getArticleByID(article_id)
+      .then((articleData) => {
       setArticle(articleData.article);
-      setIsLoading(false);
-    });
+      setIsLoading(false)
+    })
+    .catch((err) => {
+      console.log(err)
+      setIsError(true);
+      setIsLoading(false)
+  })
+
   }, [article_id]);
 
   if (isLoading) {
     return <LoadingScreen />;
+  }
+  
+  if (isError) {
+    <CannotLoadData/>
   }
 
   return (
@@ -34,7 +48,7 @@ export const SingleArticle = () => {
       <article key={article_id}>
         <h3 className="article-header">
           Topic:{" "}
-          <Link className="default-text default-link" to={"/topics/"}>
+          <Link className="default-text default-link" to={`/articles?topic=${article.topic}`}>
             {article.topic}
           </Link>
         </h3>
