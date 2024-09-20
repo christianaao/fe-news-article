@@ -48,9 +48,11 @@ _and more features to come!_
 
 1. Clone or fork this repo.
 
-2. Run `npm install` in your terminal to install all dependencies. 
+2. In your terminal, locate the directory you would like to save the code to and type `git clone` followed by the cloned/forked repo link.
 
-3. Run `npm run dev` or and a URL will be generated in the terminal directing you to the news article website.
+3. In the cloned directory, type `npm install` in your terminal to install all dependencies. 
+
+4. Type `npm run dev` or and a URL will be generated in the terminal directing you to the news article website.
 
 ☺ I hope you enjoy browsing through my website ☺
 
