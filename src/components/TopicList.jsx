@@ -39,7 +39,7 @@ export const Topics = () => {
             {topics.map((topic) => {
                 return (
                     <article className="topic-card" key={topic.slug}>
-                        <Link className="article-link" to={`/articles/topic/${topic.slug}`}>
+                        <Link className="article-link" to={`/articles?topic=${topic.slug}`}>
                         <h2>{topic.slug.charAt(0).toUpperCase() + topic.slug.slice(1)}</h2>
                         </Link>
                         <p>{topic.description}</p>
