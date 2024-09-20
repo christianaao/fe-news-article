@@ -1,11 +1,11 @@
-import { useRouter, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { getArticles } from "./api";
 import { LoadingScreen } from "./LoadingStatuses";
 import "../CSS/ArticleCards.css";
 import { ArticleCards } from "./ArticleCards";
 import { CannotLoadData } from "./ErrorMessages";
-import { Link, useParams, useSearchParams } from "react-router-dom";
-// import { TopicMenu } from "./TopicMenu";
+import { useSearchParams } from "react-router-dom";
+import "../CSS/Filters.css"
 
 export const ArticleList = () => {
   const [articles, setArticles] = useState([]);
@@ -14,14 +14,11 @@ export const ArticleList = () => {
 
   const [isError, setIsError] = useState(false);
 
-  const { slug } = useParams()
-
   const [searchParams, setSearchParams] = useSearchParams()
-
-  // const router = useRouter()
-
+  
   const sortByQuery = searchParams.get("sort_by");
   const orderQuery = searchParams.get("order");
+  const topic = searchParams.get("topic")
 
   const setSortByQuery = (sortQuery) => {
     const newParams = new URLSearchParams(searchParams)
@@ -35,11 +32,18 @@ export const ArticleList = () => {
     setSearchParams(newParams)
   }
 
-  console.log(slug, sortByQuery, orderQuery)
+  const setTopic = (topicFilter) => {
+    const newParams = new URLSearchParams(searchParams)
+    newParams.set("topic", topicFilter)
+    console.log(topicFilter)
+    setSearchParams(newParams)
+  }
+
+  console.log(topic, sortByQuery, orderQuery)
 
   useEffect(() => {
     setIsLoading(true);
-    getArticles(slug, sortByQuery, orderQuery)
+    getArticles(topic, sortByQuery, orderQuery)
       .then((articleData) => {
         setArticles(articleData);
         setIsLoading(false);
@@ -49,11 +53,7 @@ export const ArticleList = () => {
         setIsError(true);
         setIsLoading(false);
       });
-  }, [slug, sortByQuery, orderQuery]);
-
-  // function handleChange(event) {
-  //   router.push(`/${event.target.value}`)
-  // }
+  }, [topic, sortByQuery, orderQuery]);
 
   if (isLoading) {
     return <LoadingScreen />;
@@ -65,25 +65,29 @@ export const ArticleList = () => {
 
   return (
     <section>
-      <button onClick={() => setOrderQuery("ASC")}>ascending</button>
-      <button onClick={() => setOrderQuery("DESC")}>descending</button>
+        <div className="filter-section">
+          <label htmlFor="topics">Topics: </label>
+          <select className="filter" name="topics" id="topics" value={topic || ""} onChange={event => setTopic(event.target.value)}>
+            <option value="coding">Coding</option>
+            <option value="football">Football</option>
+            <option value="cooking">Cooking</option>
+          </select>
 
-      <label htmlFor="sort-by-query">Sort by: </label>
-      <select name="sort-by-query" id="sort-by-query">
-        <option onChange={() => setSortByQuery("created_at")} value="title">Date</option>
-        <option onChange={() => setSortByQuery("title")} value="title">Title</option>
-        <option onChange={() => setSortByQuery("author")} value="title">Author</option>
-        <option onChange={() => setSortByQuery("votes")} value="title">Votes</option>
-        <option onChange={() => setSortByQuery("comment_count")} value="title">Comments</option>
-      </select>
-      {/* <TopicMenu slug={slug}/> */}
-      {/* <label htmlFor="topics">Topics: </label>
-      <select name="topics" id="topics">
-        <Link className="article-link" to="/articles/topic/coding"><option value="coding">Coding</option></Link>
-        <option onClick={() => setTopic("football")} value="football">Football</option>
-        <option onClick={() => setTopic("cooking")} value="cooking">Cooking</option>
-        <option onClick={<Link className="article-link" to={`/articles/topic/coding`}></Link>} value="coding">Coding</option>
-      </select> */}
+          <label htmlFor="sort-by-query">Sort by: </label>
+          <select className="filter" name="sort-by-query" id="sort-by-query" value={sortByQuery || ""} onChange={event => setSortByQuery(event.target.value)}>
+            <option value="created_at">Date</option>
+            <option value="title">Title</option>
+            <option value="author">Author</option>
+            <option value="votes">Votes</option>
+            <option value="comment_count">Comments</option>
+          </select>
+
+          <label htmlFor="order-query">Order: </label>
+          <select className="filter" name="order-query" id="order-query" value={orderQuery || ""} onChange={event => setOrderQuery(event.target.value)}>
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+          </select>
+        </div>
       <ArticleCards articles={articles} />
     </section>
   )
