@@ -2,13 +2,13 @@
     border-radius: 0;
     /* border: 1px, solid, #ec6a6a; */
     /* background-color: #f1dddd; */
-    padding: 3%;
+    /* padding: 3%; */
     line-height: 1.5;
     max-width: fit-content;
   }
 
 .topic-card {
-    padding: 5%;
+    padding: 3%;
     line-height: 1.5;
     max-width: fit-content;
 }

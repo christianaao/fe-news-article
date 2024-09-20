@@ -35,11 +35,8 @@ export const ArticleList = () => {
   const setTopic = (topicFilter) => {
     const newParams = new URLSearchParams(searchParams)
     newParams.set("topic", topicFilter)
-    console.log(topicFilter)
     setSearchParams(newParams)
   }
-
-  console.log(topic, sortByQuery, orderQuery)
 
   useEffect(() => {
     setIsLoading(true);
@@ -65,6 +62,9 @@ export const ArticleList = () => {
 
   return (
     <section>
+      <header className="header">
+        <h2>Articles</h2><br/>
+        </header>
         <div className="filter-section">
           <label htmlFor="topics">Topics: </label>
           <select className="filter" name="topics" id="topics" value={topic || ""} onChange={event => setTopic(event.target.value)}>

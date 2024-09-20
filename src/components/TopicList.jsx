@@ -36,6 +36,9 @@ export const Topics = () => {
 
     return (
         <section className="topic-section">
+            <h2>Topics</h2>
+            <p>Choose from one of the topics below to see a list of articles relating to that topic.</p>
+            
             {topics.map((topic) => {
                 return (
                     <article className="topic-card" key={topic.slug}>
