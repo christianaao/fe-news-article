@@ -18,6 +18,8 @@ export const NewComment = ({ article_id, setComments }) => {
 
   const [disableButton, setDisableButton] = useState(false);
 
+  const [error, setError] = useState(null);
+
   function handleCommentChange(event) {
     const value = event.target.value;
     setNewCommentInput(value);
@@ -45,18 +47,21 @@ export const NewComment = ({ article_id, setComments }) => {
         })
         .catch((err) => {
           console.log(err);
+          setError(err)
         });
     }
   }
 
   // Error Handling
-function CommentErrors() {
-  if (!isloggedIn) {
-    return <NotLoggedInComment />
-  } else if (invalidComment) {
-    return <InvalidComment/>
+  function CommentErrorHandling() {
+    if (!isloggedIn) {
+      return <NotLoggedInComment />
+    } else if (invalidComment) {
+      return <InvalidComment/>
+    } else if (error) {
+      return <CommentError message={error.message}/>
+    }
   }
-}
 
   function CommentButton() {
     if (disableButton) {
@@ -90,7 +95,7 @@ function CommentErrors() {
         ></textarea>
         {<CommentButton/>}
       </form>
-      {<CommentErrors/>}
+      {<CommentErrorHandling/>}
     </section>
   );
 };

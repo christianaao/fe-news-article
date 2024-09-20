@@ -3,6 +3,7 @@ import { patchVotesByArticleID } from "./api"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCircleUp, faCircleDown} from "@fortawesome/free-solid-svg-icons"
 import "../CSS/Votes.css"
+import { VoteError } from "./ErrorMessages"
 
 export const Votes = ({article_id, votes}) => {
 
@@ -14,9 +15,10 @@ export const Votes = ({article_id, votes}) => {
         setVotesCount((currentVotesCount) => currentVotesCount + num)
         setError(null)
         patchVotesByArticleID(article_id, num)
-        .catch(() => {
+        .catch((err) => {
+            console.log(err)
             setVotesCount((currentVotesCount) => currentVotesCount - num)
-            setError("Unexpected error! Your vote has not been registered.")
+            setError(err)
         })
     }
     
@@ -29,7 +31,7 @@ export const Votes = ({article_id, votes}) => {
                 <button aria-label="down-vote" className="down-vote-button" onClick={() => handleVote(-1)}><FontAwesomeIcon icon={faCircleDown} size={"1x"}/>
                 </button>
             <>
-                {error ? <p className="vote-error">{error}</p> : null}
+                {error ? <VoteError message={error.message}/> : null}
             </>
         </section>
     )
