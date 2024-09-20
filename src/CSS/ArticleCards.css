@@ -1,0 +1,15 @@
+.article-card {
+    border-radius: 5%;
+    border: 1px, solid, #ec6a6a;
+    padding: 5%;
+    margin: 5%;
+    line-height: 1.5;
+    max-width: fit-content;
+}
+
+.article-img {
+    max-width: 100%;
+    border-radius: 5%;
+    margin-bottom: 1%;
+    margin-top: 1%;
+}

@@ -1,0 +1,66 @@
+/* Nav Links */
+
+nav {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+}
+
+ .navbar {
+    /* max-width: fit-content; - test if this will keep navbar on page*/
+    display: flex; 
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    background-color: black;
+}
+
+.nav-link {
+    width: 100vw;
+    max-width: fit-content;
+    text-wrap: nowrap;
+    background-color: black;
+    color:#fff;
+    text-decoration: none;
+    margin: 0.5rem; 
+    font-size: 1.2rem; 
+    cursor: pointer;
+    transition: color 0.3s ease; 
+}
+
+.nav-link:hover {
+    color: #ea5a68; 
+}
+
+.nav-link:visited {
+    /* color: #ea5a68; */
+}
+
+.logo {
+  font-family: "Playfair Display", serif;
+  font-weight: 900;
+}
+
+/* Article Links */
+
+.article-link {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+    transition: color 0.3s ease; 
+}
+
+.article-link:hover {
+    color: #e04857; 
+}
+
+.article-link:visited {
+    color: #702c33;
+}
+
+@media (max-width: 769px) {
+    .navbar {
+        display:inline-block; 
+        /* max-width: fit-content; - test if this will keep navbar on page */
+    }
+}
