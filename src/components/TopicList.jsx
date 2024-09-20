@@ -11,7 +11,7 @@ export const Topics = () => {
 
     const [isLoading, setIsLoading] = useState(true);
 
-    const [isError, setIsError] = useState(false);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
         getTopics()
@@ -21,7 +21,7 @@ export const Topics = () => {
         })
         .catch((err) => {
             console.log(err)
-            setIsError(true)
+            setError(err)
             setIsLoading(false)
         })
     }, [])
@@ -30,12 +30,12 @@ export const Topics = () => {
         return <LoadingScreen />;
     }
     
-    if (isError) {
-        return <CannotLoadData/>
+    if (error) {
+        return <CannotLoadData message={error.message}/>
     }
 
     return (
-        <section className="section">
+        <section className="topic-section">
             {topics.map((topic) => {
                 return (
                     <article className="topic-card" key={topic.slug}>

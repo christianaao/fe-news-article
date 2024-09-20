@@ -9,17 +9,21 @@ import { Votes } from "./Votes";
 import "../CSS/Links.css";
 import "../CSS/Comments.css";
 import { DeleteComment } from "./DeleteComment";
+import { CannotLoadData } from "./ErrorMessages";
 
 export const Comments = ({ comments, setComments }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const [noComments, setNoComments] = useState(true);
 
+  const [error, setError] = useState(null);
+
   const { article_id } = useParams();
 
   useEffect(() => {
     setIsLoading(true);
-    getCommentsByArticleID(article_id).then(({ comments }) => {
+    getCommentsByArticleID(article_id)
+    .then(({ comments }) => {
       if (comments.length === 0) {
         setIsLoading(false);
         setNoComments(true);
@@ -28,7 +32,12 @@ export const Comments = ({ comments, setComments }) => {
         setNoComments(false);
         setIsLoading(false);
       }
-    });
+    })
+    .catch((err) => {
+      console.log(err)
+      setError(err)
+      setIsLoading(false)
+    })
   }, []);
 
   if (isLoading) {
@@ -37,6 +46,10 @@ export const Comments = ({ comments, setComments }) => {
 
   if (noComments) {
     return <NoComments />;
+  }
+
+  if (error) {
+    return <CannotLoadData message={error.message}/>
   }
 
   return (

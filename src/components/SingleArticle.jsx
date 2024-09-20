@@ -16,7 +16,7 @@ export const SingleArticle = () => {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const [isError, setIsError] = useState(false);
+  const [error, setError] = useState(null);
 
   const { article_id } = useParams();
 
@@ -29,18 +29,17 @@ export const SingleArticle = () => {
     })
     .catch((err) => {
       console.log(err)
-      setIsError(true);
+      setError(err);
       setIsLoading(false)
-  })
-
+    })
   }, [article_id]);
 
   if (isLoading) {
     return <LoadingScreen />;
   }
   
-  if (isError) {
-    <CannotLoadData/>
+  if (error) {
+    return <CannotLoadData message={error.message}/>
   }
 
   return (

@@ -1,33 +1,57 @@
-export const CannotLoadData = () => {
+// General
+
+export const CannotLoadData = ({message}) => {
     return (
-        <p className="error-message">Something went wrong. Could not load data.</p>
+        <div className="error-message">
+            <h2>Error</h2>
+            <h3>Something went wrong! Could not load data.</h3>
+            <p>{message}</p>
+        </div>
     )
 }
+
+// Votes
+
+export const VoteError = ({message}) => {
+    return (
+        <div className="error-message">
+            <h2>Error</h2>
+            <h3>Unexpected error! Your vote has not been registered.</h3>
+            <p>{message}</p>
+        </div>
+    )
+}
+
+// Comments
 
 export const InvalidComment = () => {
     return (
-        <>
-        <p className="error-message" disabled>Please enter a valid comment</p>
-        </>
+        <p className="error-message" disabled>Please enter a valid comment.</p>
     )
 }
 
-export const CommentError = () => {
+export const CommentError = ({message}) => {
     return (
-        <p className="error-message">Unexpected error! Your comment has not been registered.</p>
+        <div className="error-message">
+            <h2>Error</h2>
+            <h3>Unexpected error! Your comment has not been registered.</h3>
+            <p>{message}</p>
+        </div>
     )
 }
 
-export const DeleteCommentError = () => {
+export const DeleteCommentError = ({message}) => {
     return (
-        <p className="error-message">Unexpected error! Your comment has not been deleted.</p>
+        <div className="error-message">
+            <h2>Error</h2>
+            <h3>Unexpected error! Your comment has not been deleted.</h3>
+            <p>{message}</p>
+        </div>
     )
 }
 
 export const NotLoggedInComment = () => {
     return (
-        <>
-        <p className="error-message" disabled>Please login to post a comment</p>
-        </>
+        <p className="error-message" disabled>Please login to post a comment.</p>
     )
 }

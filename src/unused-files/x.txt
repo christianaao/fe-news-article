@@ -93,3 +93,5 @@ export const ArticleList = () => {
     </section>
   )
 }
+
+        {error ? <InvalidComment/> : null}

@@ -5,7 +5,7 @@ import { useState } from "react"
 
 export const DeleteComment = ({comment_id, setComments}) => {
 
-    const [error, setError] = useState(false)
+    const [error, setError] = useState(null)
 
     const [isCommentDeleting, setIsCommentDeleting] = useState(false)
 
@@ -21,16 +21,16 @@ export const DeleteComment = ({comment_id, setComments}) => {
                 return renderedComments
             })
             setIsCommentDeleting(false)
-            setError(false)
+            setError(null)
         })
         .catch((err) => {
             console.log(err);
-            setError(true)
+            setError(err)
         })
     }
-    // Error Handling
+    
     if (error) {
-        return <DeleteCommentError/>
+        return <DeleteCommentError message={error.message}/>
     }
 
     function DeleteButton() {

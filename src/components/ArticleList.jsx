@@ -12,7 +12,7 @@ export const ArticleList = () => {
 
   const [isLoading, setIsLoading] = useState(true);
 
-  const [isError, setIsError] = useState(false);
+  const [error, setError] = useState(null);
 
   const [searchParams, setSearchParams] = useSearchParams()
   
@@ -50,7 +50,7 @@ export const ArticleList = () => {
       })
       .catch((err) => {
         console.log(err);
-        setIsError(true);
+        setError(err);
         setIsLoading(false);
       });
   }, [topic, sortByQuery, orderQuery]);
@@ -59,8 +59,8 @@ export const ArticleList = () => {
     return <LoadingScreen />;
   }
 
-  if (isError) {
-    <CannotLoadData/>
+  if (error) {
+    return <CannotLoadData message={error.message}/>
   }
 
   return (

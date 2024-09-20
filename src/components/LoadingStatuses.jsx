@@ -27,6 +27,6 @@ export const DeletingCommentButton = () => {
 
 export const NoComments = () => {
     return (
-        <h3>No comments here yet. Be the first to post a comment!</h3>
+        <h3>No comments here yet! Be the first to post a comment.</h3>
     )
 }
