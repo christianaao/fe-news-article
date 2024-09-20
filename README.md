@@ -4,14 +4,14 @@
 
 This project is the frontend application of my news article website, created using React.js. It is designed to display data using the API I built in my backend projetct. This app features a range of functionality from viewing lists of articles, to voting and commenting on individual articles.
 
-This project is still under development and is continually being improved.
+This project is still under development and is continuously being improved.
 
 ## Project Links
 
-Frontend APP: _coming soon_<br/>
+Frontend APP: https://frontend-news-article-project.netlify.app/<br/>
 Frontend Repo: https://github.com/christianaao/frontend-news-article-project
 
-Backend API : https://news-article-project.onrender.com/<br/>
+Backend API: https://news-article-project.onrender.com/<br/>
 Backend Repo: https://github.com/christianaao/backend-news-article-project
 
 _Please refer to the Backend Repo on guidance for using the Backend API_
@@ -22,7 +22,13 @@ This project was created as a CRUD (Create, Read, Update, Delete) application, p
 
 Site features include:
 
-* a list of articles to browse through, with details about the article such as author, date of creation, and vote and comment counts.
+* a list of articles to browse through, with details about the article such as author, date of creation, and vote and comment counts
+
+* functionality to filter articles by topic
+
+* functionality to sort topics by different queries, such as date, author, vote count, comment count. This can also be set to ascending or descending order
+
+* a list of topics to browse through, which will redirect to a filtered page of the chosen topic
 
 * individual articles that can be viewed and read
 
@@ -32,13 +38,15 @@ Site features include:
 
 * functionality to add and delete comments
 
+* error handling functionality, such as error messages for incorrect inputs, missing fields, or non-existing pages
+
 _and more features to come!_
 
 ## Setup
 
 **_In order to run this server locally:_**
 
-1. Clone or fork this repo
+1. Clone or fork this repo.
 
 2. Run `npm install` in your terminal to install all dependencies. 
 
