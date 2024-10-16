@@ -1,4 +1,4 @@
-# Front End News React Project
+# Community Connection News Application - Frontend
 
 ## About this Project
 
