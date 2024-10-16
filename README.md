@@ -52,7 +52,7 @@ _and more features to come!_
 
 3. In the cloned directory, type `npm install` in your terminal to install all dependencies. 
 
-4. Type `npm run dev` and a URL will be generated in the terminal directing you to the news article website.
+4. Type `npm run dev` and the application will become available on the following URL: `http://localhost:3000`
 
 ☺ I hope you enjoy browsing through my website ☺
 
