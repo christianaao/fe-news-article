@@ -1,4 +1,4 @@
-# Community Connection News Application - Frontend
+# Community Connection News Application
 
 ## About this Project
 
