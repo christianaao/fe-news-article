@@ -1,8 +1,8 @@
-# Front End News React Project
+# Community Connection News Application
 
 ## About this Project
 
-This project is the frontend application of my news article website, created using React.js. It is designed to display data using the API I built in my backend projetct. This app features a range of functionality from viewing lists of articles, to voting and commenting on individual articles.
+This project is the frontend application of my news article website, created using React.js, HTML and CSS. It is designed to display data using the API I built in my backend project. This app features a range of functionality from viewing lists of articles, to voting and commenting on individual articles.
 
 This project is still under development and is continuously being improved.
 
@@ -48,9 +48,11 @@ _and more features to come!_
 
 1. Clone or fork this repo.
 
-2. Run `npm install` in your terminal to install all dependencies. 
+2. In your terminal, locate the directory you would like to save the code to and type `git clone` followed by the cloned/forked repo link.
 
-3. Run `npm run dev` or and a URL will be generated in the terminal directing you to the news article website.
+3. In the cloned directory, type `npm install` in your terminal to install all dependencies. 
+
+4. Type `npm run dev` and the application will become available on the following URL: `http://localhost:3000`.
 
 ☺ I hope you enjoy browsing through my website ☺
 
