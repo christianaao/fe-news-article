@@ -1,7 +1,7 @@
 .delete-button-section{
     display: inline-flex;
-    justify-content: right;
-    margin-left: 33vw;
+    /* justify-content: space-between; */
+    margin-left: 33.2vw;
 }
 
 .delete {
