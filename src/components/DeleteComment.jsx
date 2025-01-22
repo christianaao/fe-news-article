@@ -2,6 +2,9 @@ import { deleteCommentByCommentID } from "./api"
 import { DeleteCommentError } from "./ErrorMessages"
 import { DeletingCommentButton } from "./LoadingStatuses"
 import { useState } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTrash } from "@fortawesome/free-solid-svg-icons"
+import "../CSS/Delete.css"
 
 export const DeleteComment = ({comment_id, setComments}) => {
 
@@ -38,7 +41,7 @@ export const DeleteComment = ({comment_id, setComments}) => {
             return <DeletingCommentButton/>
         } else {
             return (
-                <button className="default-button delete" onClick={handleDelete}>Delete Comment</button>
+                <button className="delete" onClick={handleDelete}> <FontAwesomeIcon icon={faTrash}/></button>
             )
     }
 }

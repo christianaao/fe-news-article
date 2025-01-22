@@ -1,0 +1,18 @@
+.delete-button-section{
+    display: inline-flex;
+    justify-content: right;
+    margin-left: 33vw;
+}
+
+.delete {
+    border: none;
+}
+
+.delete:hover{
+    cursor: pointer;
+    color: #ec6a6a ;
+}
+
+.delete:disabled {
+    color: #ec6a6a ;
+}

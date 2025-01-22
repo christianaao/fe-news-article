@@ -7,3 +7,16 @@
 .loading button[disabled]:hover,.loading button:disabled:hover{
     background-color: #646464
   }
+
+.delete-button-loading {
+  border: none;
+}
+
+.delete-button-loading:hover {
+  cursor: pointer;
+  color: #4e4ef3;
+}
+
+.delete-button-loading:disabled {
+  color: #4e4ef3;
+}

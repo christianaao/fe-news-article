@@ -1,4 +1,6 @@
 import "../CSS/LoadingStatuses.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faSpinner } from "@fortawesome/free-solid-svg-icons"
 
 export const LoadingScreen = () => {
     return (
@@ -20,7 +22,7 @@ export const LoadingPostButton = () => {
 export const DeletingCommentButton = () => {
     return (
         <>
-        <button className="default-button loading" disabled>Deleting...</button>
+        <button className="delete-button-loading" disabled><FontAwesomeIcon icon={faSpinner} /></button>
         </>
     )
 }
